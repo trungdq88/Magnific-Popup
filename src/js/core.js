@@ -164,12 +164,6 @@ MagnificPopup.prototype = {
 			mfp.index = data.index || 0;
 		}
 
-		// if popup is already opened - we just update the content
-		if(mfp.isOpen) {
-			mfp.updateItemHTML();
-			return;
-		}
-		
 		mfp.types = []; 
 		_wrapClasses = '';
 		if(data.mainEl && data.mainEl.length) {
@@ -199,6 +193,11 @@ MagnificPopup.prototype = {
 			mfp.st.enableEscapeKey = false;
 		}
 		
+		// if popup is already opened - we just update the content
+		if(mfp.isOpen) {
+			mfp.updateItemHTML();
+			return;
+		}
 
 		// Building markup
 		// main containers are created only once

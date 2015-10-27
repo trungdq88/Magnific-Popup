@@ -1,4 +1,4 @@
-/*! Magnific Popup - v1.0.0 - 2015-09-17
+/*! Magnific Popup - v1.0.0 - 2015-10-27
 * http://dimsemenov.com/plugins/magnific-popup/
 * Copyright (c) 2015 Dmitry Semenov; */
 ;(function (factory) { 
@@ -181,12 +181,6 @@ MagnificPopup.prototype = {
 			mfp.index = data.index || 0;
 		}
 
-		// if popup is already opened - we just update the content
-		if(mfp.isOpen) {
-			mfp.updateItemHTML();
-			return;
-		}
-		
 		mfp.types = []; 
 		_wrapClasses = '';
 		if(data.mainEl && data.mainEl.length) {
@@ -216,6 +210,11 @@ MagnificPopup.prototype = {
 			mfp.st.enableEscapeKey = false;
 		}
 		
+		// if popup is already opened - we just update the content
+		if(mfp.isOpen) {
+			mfp.updateItemHTML();
+			return;
+		}
 
 		// Building markup
 		// main containers are created only once
